@@ -1,4 +1,8 @@
 import { Routes } from '@angular/router';
+import { ProductForm } from './components/product-form/product-form';
+import { ProductList } from './components/product-list/product-list';
+import { ProductDetail } from './components/product-detail/product-detail';
+import { NotFound } from './components/not-found/not-found';
 
 export const routes: Routes = [
     {
@@ -8,27 +12,22 @@ export const routes: Routes = [
     },
     {
         path: 'products',
-        component: undefined,
+        component: ProductList,
         title: 'Products Page',
     },
     {
         path: 'products/new',
-        component: undefined,
+        component: ProductForm,
         title: 'Create Product Page',
     },
     {
-        path: 'products/:id/edit',
-        component: undefined,
-        title: 'Edit Product Page',
-    },
-    {
         path: 'products/:id',
-        component: undefined,
+        component: ProductDetail,
         title: 'Product Page',
     },
     {
         path: '**',
-        component: undefined,
+        component: NotFound,
         title: 'Page Not Found',
     },
 ];

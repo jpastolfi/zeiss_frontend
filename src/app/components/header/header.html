@@ -1,0 +1,18 @@
+<header class="sticky top-0 z-99 flex py-6 bg-white">
+    <div class="w-1/5 flex justify-center items-center gap-8">
+        <img
+            src="/images.png"
+            alt="Zeiss Logo"
+            class="h-10 w-auto"
+        >
+        <p>Zeiss Code Assessment</p>
+    </div>
+    <div class="w-4/5 flex">
+        <input
+            placeholder="Enter the product's name to search"
+            class="w-4/5 p-5 mr-10"
+            (input)="onSearchInput($event.target.value)"
+        >
+        <button>Search</button>
+    </div>
+</header>
