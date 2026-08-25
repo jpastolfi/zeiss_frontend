@@ -1,8 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { ProductService } from '../../services/product-service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { ProductResponse } from '../../models/product.model';
+import { Location } from '@angular/common';
 
 @Component({
   imports: [],
@@ -14,6 +14,7 @@ export class ProductDetail {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private api = inject(ProductService);
+  private location = inject(Location);
 
   private product_id = Number(this.route.snapshot.paramMap.get('id'));
   product = signal<ProductResponse | undefined>(undefined)
@@ -38,5 +39,9 @@ export class ProductDetail {
     this.api.deleteProduct(this.product_id).subscribe(updated => {
       this.router.navigate(['/products']);
     })
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

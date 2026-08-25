@@ -1,5 +1,5 @@
-<header class="sticky top-0 z-99 flex py-6 bg-white">
-    <div class="w-1/5 flex justify-center items-center gap-8 cursor-pointer" routerLink="/">
+<header class="cursor-pointer sticky top-0 z-99 flex p-6 bg-white">
+    <div class="w-1/5 flex justify-center items-center gap-8" routerLink="/">
         <img
             src="/images.png"
             alt="Zeiss Logo"
@@ -7,11 +7,10 @@
         >
         <p>Zeiss Code Assessment</p>
     </div>
-    <div class="w-4/5 flex">
-        <input
-            placeholder="Enter the product's name to search"
-            class="w-4/5 p-5 mr-10"
-            (input)="onSearchInput($event.target.value)"
-        >
-    </div>
+    <input
+        placeholder="Enter the product's name to search"
+        class="w-3/5 p-5 mr-10"
+        (input)="onSearchInput($event.target.value)"
+    >
+    <button (click)="redirectToCreateProduct()" class="px-4 py-1 bg-yellow-600 text-white font-bold rounded-2xl">Create new product</button>
 </header>

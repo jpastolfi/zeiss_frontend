@@ -1,31 +1,32 @@
 
-<div class="flex flex-col justify-around">
-    @if (product() == null) {
-        <p>Product not found</p>
-    } @else {
-        <div class="max-w-2xl mx-auto p-8">
-            <h1 class="text-3xl font-semibold">{{product()!.name}}</h1>
-            <p class="text-sm text-gray-400">ID: {{product()!.id}}</p>
-            <div class="mt-4 space-y-1 text-gray-700">
-                <p><span class="text-gray-400">Price</span> — €{{product()!.price}}</p>
-                <p><span class="text-gray-400">In Stock</span> — {{product()!.stock}}</p>
-                <p><span class="text-gray-400">Category</span> — {{product()!.categoryName}}</p>
+<div>
+    <button (click)="goBack()">< Back</button>
+    <div class="flex flex-col max-w-2xl mx-auto p-8">
+        @if (product() == null) {
+            <h1 class="text-3xl font-semibold">Product not found</h1>
+        } @else {
+                <h1 class="text-3xl font-semibold">{{product()!.name}}</h1>
+                <p class="text-sm text-gray-400">ID: {{product()!.id}}</p>
+                <div class="mt-4 space-y-1 text-gray-700">
+                    <p><span class="text-gray-400">Price</span> — €{{product()!.price}}</p>
+                    <p><span class="text-gray-400">In Stock</span> — {{product()!.stock}}</p>
+                    <p><span class="text-gray-400">Category</span> — {{product()!.categoryName}}</p>
+                </div>
+            <div class="mt-8 space-y-3">
+                <div class="flex items-center gap-3">
+                    <input #qtyIncrease value="1" type="number" min="1" class="border rounded px-3 py-1 w-24" placeholder="Qty" />
+                    <button (click)="increaseStock(qtyIncrease.value)"  class="px-4 py-1 bg-green-600 text-white rounded">Increase stock</button>
+                </div>
+                <div class="flex items-center gap-3">
+                    <input #qtyDecrease value="1" type="number" min="1" class="border rounded px-3 py-1 w-24" placeholder="Qty" />
+                    <button (click)="this.decreaseStock(qtyDecrease.value)" class="px-4 py-1 bg-yellow-600 text-white rounded">Reduce Stock</button>
+                </div>
             </div>
-        </div>
-        <div class="mt-8 space-y-3">
-            <div class="flex items-center gap-3">
-                <input #qtyIncrease value="1" type="number" min="1" class="border rounded px-3 py-1 w-24" placeholder="Qty" />
-                <button (click)="increaseStock(qtyIncrease.value)"  class="px-4 py-1 bg-green-600 text-white rounded">+ Increase</button>
+            <div class="mt-10 pt-6 border-t">
+                <button (click)="deleteProduct()" class="px-4 py-2 border border-red-600 text-red-600 rounded hover:bg-red-50">
+                    Delete Product
+                </button>
             </div>
-            <div class="flex items-center gap-3">
-                <input #qtyDecrease value="1" type="number" min="1" class="border rounded px-3 py-1 w-24" placeholder="Qty" />
-                <button (click)="this.decreaseStock(qtyDecrease.value)" class="px-4 py-1 bg-yellow-600 text-white rounded">− Reduce</button>
-            </div>
-        </div>
-        <div class="mt-10 pt-6 border-t">
-            <button (click)="deleteProduct()" class="px-4 py-2 border border-red-600 text-red-600 rounded hover:bg-red-50">
-                Delete Product
-            </button>
-        </div>
-    }
+        }
+    </div>
 </div>
