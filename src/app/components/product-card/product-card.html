@@ -1,0 +1,9 @@
+<div class="cursor-pointer border rounded-lg p-4 flex flex-col justify-center items-center h-full">
+    <a [routerLink]="['/products', product().id]">
+        <p>{{ product().name}}</p>
+        <p class="text-gray-400 text-xs">{{ product().id}}</p>
+        <p>€{{ product().price}}</p>
+        <p>{{ product().stock}} units in stock</p>
+        <p>{{ product().categoryName}}</p>
+    </a>
+</div>

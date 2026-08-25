@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { SearchState } from '../../services/search-state';
+import { RouterLink } from "@angular/router";
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-header',
   styleUrl: './header.css',
   templateUrl: './header.html',
