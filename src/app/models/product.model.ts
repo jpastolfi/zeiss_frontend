@@ -1,12 +1,16 @@
-export interface CreateProduct {
+export interface CreateProductData {
     name: string,
     price: number,
     categoryName: string,
     stock: number,
 }
 
-export type UpdateProduct = Partial<CreateProduct>
+export interface UpdateProductData {
+    name?: string,
+    price?: number,
+    categoryName?: string,
+}
 
-export interface ProductResponse extends CreateProduct {
+export interface ProductResponse extends CreateProductData {
     id: number,
 }
