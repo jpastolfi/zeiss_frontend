@@ -1,5 +1,9 @@
-<div class="grid grid-cols-4 gap-12">
-    @for (product of products(); track product.id) {
-        <app-product-card [product]="product" />
-    }
-</div>
+@if (products().length == 0) {
+    <h1 class="text-3xl font-semibold text-center">No produts to show</h1>
+} @else {
+    <div class="grid grid-cols-4 gap-12">
+        @for (product of products(); track product.id) {
+            <app-product-card [product]="product" />
+        }
+    </div>
+}

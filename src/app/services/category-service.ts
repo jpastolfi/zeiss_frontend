@@ -6,7 +6,7 @@ import { CategoryResponse } from '../models/category.model';
 @Service()
 export class CategoryService {
     private http = inject(HttpClient);
-    private baseUrl = 'https://localhost:7018/api/categories';
+    private baseUrl = 'http://localhost:5225/api/categories';
 
     getCategories(): Observable<CategoryResponse[]> {
         return this.http.get<CategoryResponse[]>(this.baseUrl);
