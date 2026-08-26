@@ -9,3 +9,4 @@ export class SearchState {
         this._query.set(value);
     }
 }
+ 

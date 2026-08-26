@@ -21,8 +21,6 @@ export class CreateProduct {
 
   categories = toSignal(this.categoryApi.getCategories(), { initialValue: [] });
 
-  created = output<ProductResponse>();
-
   productForm = new FormGroup({
     name: new FormControl('', Validators.required),
     price: new FormControl(0, [Validators.required, Validators.min(0.01)]),
@@ -49,8 +47,8 @@ export class CreateProduct {
     }
 
     this.productApi.createProduct(newProduct)
-      .subscribe(result => this.created.emit(result));
-
-      this.router.navigate(['/products']);
+      .subscribe(result => {
+        this.router.navigate(['/products', result.id]);
+      });
   }
 }
